@@ -1,5 +1,8 @@
 import React from "react";
+import dayjs from 'dayjs';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+//dayjs.format();
 
 export const Notes = ({ notes, onRemove }) => (
   <TransitionGroup component="ul" className="list-group">
@@ -8,7 +11,7 @@ export const Notes = ({ notes, onRemove }) => (
         <li className="list-group-item note">
           <div>
             <strong>{note.title}</strong>
-            <small>{new Date().toLocaleDateString()}</small>
+            <small>{dayjs(note.date).format('DD.MM.YYYY')}</small>
           </div>
           <button
             type="button"
